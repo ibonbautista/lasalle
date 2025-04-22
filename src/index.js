@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import session from 'express-session';
+import './config/db.js'; // o como se llame tu archivo
 import cors from 'cors';
 //import router from './routes/index.js';
 
@@ -21,7 +22,7 @@ app.use(express.static('src/public'));
 app.set('view engine', 'pug');
 app.set('views', 'src/views');
 
-/* // Configurar sesión
+/*// Configurar sesión
 app.use(session({
     secret: process.env.SECRET,
     resave: false,
