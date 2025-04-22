@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import session from 'express-session';
 import './config/db.js'; // o como se llame tu archivo
 import cors from 'cors';
-//import router from './routes/index.js';
+import router from './routes/index.js';
 
 // Cargar variables de entorno
 dotenv.config();
@@ -34,7 +34,7 @@ app.use(session({
 })); */
 
 // Configurar rutas
-//app.use('/', router);
+app.use('/', router);
 
 // Iniciar servidor
 app.listen(PORT, () => {
