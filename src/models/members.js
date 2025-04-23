@@ -1,17 +1,17 @@
 import { DataTypes } from "sequelize";
 import connection from "../config/db.js";
-import User from "./users.js";
+/* import User from "./users.js"; */
 
 const Member = connection.define("member",{
     
     member_id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.INTEGER.UNSIGNED,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true
     },
     user_id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.INTEGER.UNSIGNED,
         allowNull: false,
     },
     nif: {
@@ -32,7 +32,7 @@ const Member = connection.define("member",{
         allowNull: false
     },
     family: {
-        type: DataTypes.BOOLEAN.UNSIGNED,
+        type: DataTypes.BOOLEAN,
         allowNull: false
     }
 })

@@ -5,7 +5,7 @@ import connection from "../config/db.js";
 const Rival = connection.define("rivals",{
     
     rival_id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.INTEGER.UNSIGNED,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true

@@ -4,6 +4,7 @@ import session from 'express-session';
 import './config/db.js'; // o como se llame tu archivo
 import cors from 'cors';
 import router from './routes/index.js';
+import {Coach,Team,CoachTeam,Match_Feedback,Player,Match,Season,Rival,Member,User} from './models/associations.js';
 
 // Cargar variables de entorno
 dotenv.config();
