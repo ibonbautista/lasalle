@@ -44,6 +44,10 @@ Coach.belongsTo(User, { foreignKey: 'user_id' });
 User.hasOne(Member, { foreignKey: 'user_id' });
 Member.belongsTo(User, { foreignKey: 'user_id' });
 
+Player.belongsTo(Team, { foreignKey: 'team_id' });
+Team.hasMany(Player, { foreignKey: 'team_id' });
+
+
 export {
     Coach,
     Team,
