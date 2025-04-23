@@ -1,18 +1,18 @@
 import { DataTypes } from "sequelize";
 import connection from "../config/db.js";
-import Team from "./teams.js";
-import CoachTeam from "./coaches_teams.js";
+/* import Team from "./teams.js";
+import CoachTeam from "./coaches_teams.js"; */
 
 const Coach = connection.define("coaches",{
     
     coach_id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.INTEGER.UNSIGNED,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true
     },
     user_id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.INTEGER.UNSIGNED,
         allowNull: false,
     },
     nif: {
@@ -52,7 +52,7 @@ const Coach = connection.define("coaches",{
     }
 })
 
-Coach.belongsToMany(Team, { through: 'coaches_teams', foreignKey: 'coach_id' });
-Team.belongsToMany(Coach, { through: 'coaches_teams', foreignKey: 'team_id' });
+/* Coach.belongsToMany(Team, { through: 'coaches_teams', foreignKey: 'coach_id' });
+Team.belongsToMany(Coach, { through: 'coaches_teams', foreignKey: 'team_id' }); */
 
 export default Coach;

@@ -1,12 +1,12 @@
 import { DataTypes } from "sequelize";
 import connection from "../config/db.js";
-import Player from "./players.js";
+/* import Player from "./players.js";
 import Coach from "./coaches.js";
-import Member from "./members.js";
+import Member from "./members.js"; */
 
 const User = connection.define("users",{
     user_id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.INTEGER.UNSIGNED,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true
@@ -38,14 +38,14 @@ const User = connection.define("users",{
     },
 })
 
-User.hasOne(Player, { foreignKey: 'user_id' });
+/* User.hasOne(Player, { foreignKey: 'user_id' });
 Player.belongsTo(User, { foreignKey: 'user_id' });
 
 User.hasOne(Coach, { foreignKey: 'user_id' });
 Coach.belongsTo(User, { foreignKey: 'user_id' });
 
 User.hasOne(Member, { foreignKey: 'user_id' });
-Member.belongsTo(User, { foreignKey: 'user_id' });
+Member.belongsTo(User, { foreignKey: 'user_id' }); */
 
 
 export default User;
