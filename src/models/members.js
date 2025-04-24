@@ -22,8 +22,7 @@ const Member = connection.define("member",{
         type: DataTypes.STRING(45),
         allowNull: false
     },
-
-    surname2: {
+    surname: {
         type: DataTypes.STRING(45),
         allowNull: false
     },
