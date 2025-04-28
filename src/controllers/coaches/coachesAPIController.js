@@ -1,5 +1,78 @@
 import coachController from "./coachesController.js";
 
+//CREATE A COACH
+async function createCoach(req, res) {
+    try {
+        const result = await coachController.createCoach(req.body);
+        res.status(201).json(result); // 201 Created
+    } catch (error) {
+        console.error(error);
+        if (error.statusCode) {
+            res.status(error.statusCode).json({ error: error.message });
+        } else {
+            res.status(500).json({ error: "Internal server error" });
+        }
+    }
+}
+
+//FUNCTION TO EDIT A COACH
+async function editCoach(req, res) {
+  const { id } = req.params;
+  const data = req.body;
+
+  if (!data || Object.keys(data).length === 0) {
+    return res.status(400).json({ error: 'You must send at least one field' });
+  }
+
+  try {
+    const coachUpdated = await coachController.editCoach(id, data);
+
+    if (!coachUpdated) {
+      return res.status(404).json({ mensaje: 'Coach not found' });
+    }
+
+    res.json({ message: 'Coach updated', coach: coachUpdated });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error updating coach' });
+  }
+}
+
+//FUNCTION TO DELETE A COACH
+async function fireCoach(req,res){
+    const id = req.params.id;
+    try {
+        const firedCoach = await coachController.fireCoach(id);
+    
+        if (!firedCoach) {
+          return res.status(404).json({ mensaje: 'Not finded coach' });
+        }
+    
+        res.json({ message: 'Coach fired', coach: firedCoach });
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Error during coach deletion' });
+      }
+}
+
+//FUNCTION TO UNASSIGN A COACH
+async function unassignCoach(req,res){
+    const id = req.params.id;
+    try {
+        const relaxedCoach = await coachController.relaxCoach(id);
+    
+        if (!relaxedCoach) {
+          return res.status(404).json({ mensaje: 'Not finded coach' });
+        }
+    
+        res.json({ message: 'Coach relaxed', coach: relaxCoach });
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Error during coach relax' });
+      }
+}
+
+
 //SHOW ALL COACHES
 async function getAll (req,res){
     try{
@@ -70,7 +143,47 @@ async function getCoachByTitle (req,res){
     }
 }
 
+//SHOW MATCHES BY COACH
+async function getMatchByCoach(req, res) {
+    const { id } = req.params;
+  
+    try {
+      const matches = await coachController.getMatchByCoach(id);
+  
+      if (!matches) {
+        return res.status(404).json({ error: 'Coach or team not found' });
+      }
+  
+      res.json(matches);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Coaches matches not found' });
+    }
+  }
+
+//SHOW FEEDBACK BY PLAYER
+async function getFeedbackByCoach(req,res){
+    const { id } = req.params;
+  
+    try {
+      const feedback = await coachController.getFeedbackByCoach(id);
+  
+      if (!feedback) {
+        return res.status(404).json({ error: 'Feedback not found' });
+      }
+  
+      res.json(feedback);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Coaches feedback not found' });
+    }
+}
+
 export default{
+    createCoach,
+    editCoach,
+    fireCoach,
+    unassignCoach,
     getAll,
     getCoachById ,
     getCoachByGender,
@@ -78,5 +191,7 @@ export default{
     getCoachBySurname,
     getCoachByYear,
     getCoachByAgeMinus,
-    getCoachByTitle
+    getCoachByTitle,
+    getMatchByCoach,
+    getFeedbackByCoach
 }

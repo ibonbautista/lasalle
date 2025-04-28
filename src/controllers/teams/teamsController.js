@@ -1,8 +1,5 @@
 import Team from "../../models/teams.js";
 import Season from "../../models/seasons.js";
-/* import Player from "../../models/players.js";
-import { Op } from "sequelize";
-import {  } from "../../utils/errors.js";*/
 
 //SHOW ALL TEAMS
 async function getAll(){

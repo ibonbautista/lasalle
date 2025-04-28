@@ -1,7 +1,5 @@
 import { DataTypes } from "sequelize";
 import connection from "../config/db.js";
-/* import Coach from "./coaches.js";
-import Team from "./teams.js"; */
 
 const CoachTeam = connection.define("coaches_teams",{
     coach_id: {

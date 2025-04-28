@@ -1,8 +1,5 @@
 import { DataTypes } from "sequelize";
 import connection from "../config/db.js";
-/* import Season from "./seasons.js";
-/* import Coach from "./coaches.js"; 
-import CoachTeam from "./coaches_teams.js"; */
 
 const Team = connection.define("teams",{
     
@@ -33,11 +30,5 @@ const Team = connection.define("teams",{
         allowNull: false
     }
 })
-
-/* Team.hasMany(Season,{foreignKey:"season_id"});
-Season.belongsTo(Team,{foreignKey:"team_id"}); */
-
-/* Coach.belongsToMany(Team, { through: 'CoachTeam', foreignKey: 'coach_id' });
-Team.belongsToMany(Coach, { through: 'CoachTeam', foreignKey: 'team_id' }); */
 
 export default Team;

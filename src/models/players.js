@@ -1,6 +1,5 @@
 import { DataTypes } from "sequelize";
 import connection from "../config/db.js";
-/* import Room from "./rooms.js" */
 
 const Player = connection.define("players",{
     
@@ -65,11 +64,11 @@ const Player = connection.define("players",{
     hand: {
         type: DataTypes.ENUM('left-handed', 'right-handed'),
         allowNull: false
+    },
+    status: {
+        type: DataTypes.ENUM('in', 'out'),
+        allowNull: false
     }
 })
-
-
-/* Doctor.hasOne(Room,{foreignKey:"room_id"});
-Room.belongsTo(Doctor,{foreignKey:"room_id"}); */
 
 export default Player;

@@ -101,11 +101,11 @@ INSERT INTO users (email, password, role, in_date) VALUES
 ('member5@lasalle.edu', '$2b$10$3hlItH6DsK5FMGuhhgsGj.IivU6zHhKREr5o3X4V72qnHoq44NLBK', 'member', '2024-09-01');
 
 -- Insertar entrenadores
-INSERT INTO coaches (user_id, nif, gender, name, surname1, surname2, birthdate, phone, title) VALUES
-(1, '12345678A', 'female', 'Laura', 'Martínez', 'García', '1985-05-15', '600123456', 'level 3'),
-(2, '23456789B', 'male', 'Carlos', 'González', 'Pérez', '1990-10-20', '600234567', 'level 2'),
-(3, '34567890C', 'female', 'Ana', 'Rodríguez', 'López', '1988-03-25', '600345678', 'level 2'),
-(4, '45678901D', 'male', 'Javier', 'Fernández', 'Sánchez', '1992-07-12', '600456789', 'level 1');
+INSERT INTO coaches (user_id, nif, gender, name, surname1, surname2, birthdate, phone, title, state) VALUES
+(1, '12345678A', 'female', 'Laura', 'Martínez', 'García', '1985-05-15', '600123456', 'level 3', 'in'),
+(2, '23456789B', 'male', 'Carlos', 'González', 'Pérez', '1990-10-20', '600234567', 'level 2', 'in'),
+(3, '34567890C', 'female', 'Ana', 'Rodríguez', 'López', '1988-03-25', '600345678', 'level 2', 'in'),
+(4, '45678901D', 'male', 'Javier', 'Fernández', 'Sánchez', '1992-07-12', '600456789', 'level 1', 'in');
 
 -- Asignar entrenadores a equipos
 INSERT INTO coaches_teams (coach_id, team_id, role) VALUES
@@ -119,64 +119,64 @@ INSERT INTO coaches_teams (coach_id, team_id, role) VALUES
 (4, 6, 'head');      -- Javier entrena al equipo masculino cadet
 
 -- Insertar jugadores para el equipo 1 (LaSalle Eagles - femenino senior)
-INSERT INTO players (user_id, team_id, nif, gender, name, surname1, surname2, birthdate, phone, address, position, height, hand) VALUES
-(5, 1, '50000001E', 'female', 'María', 'López', 'García', '2000-01-15', '610111111', 'Calle Mayor 1, Madrid', 'point guard', 175, 'right-handed'),
-(6, 1, '50000002F', 'female', 'Carmen', 'Martínez', 'Sánchez', '2001-02-20', '610222222', 'Avenida Central 2, Madrid', 'shooting guard', 178, 'right-handed'),
-(7, 1, '50000003G', 'female', 'Lucía', 'Fernández', 'Martín', '2000-03-25', '610333333', 'Plaza España 3, Madrid', 'small forward', 182, 'left-handed'),
-(8, 1, '50000004H', 'female', 'Elena', 'García', 'Rodríguez', '2001-04-10', '610444444', 'Calle Sol 4, Madrid', 'power forward', 185, 'right-handed'),
-(9, 1, '50000005I', 'female', 'Paula', 'Pérez', 'González', '2000-05-05', '610555555', 'Avenida Luna 5, Madrid', 'center', 190, 'right-handed'),
-(10, 1, '50000006J', 'female', 'Sofía', 'Gómez', 'Díaz', '2001-06-15', '610666666', 'Calle Estrella 6, Madrid', 'shooting guard', 176, 'left-handed'),
-(11, 1, '50000007K', 'female', 'Alba', 'Sánchez', 'Álvarez', '2000-07-20', '610777777', 'Avenida Mar 7, Madrid', 'point guard', 173, 'right-handed');
+INSERT INTO players (user_id, team_id, nif, gender, name, surname1, surname2, birthdate, phone, address, position, height, hand, status) VALUES
+(5, 1, '50000001E', 'female', 'María', 'López', 'García', '2000-01-15', '610111111', 'Calle Mayor 1, Madrid', 'point guard', 175, 'right-handed', 'in'),
+(6, 1, '50000002F', 'female', 'Carmen', 'Martínez', 'Sánchez', '2001-02-20', '610222222', 'Avenida Central 2, Madrid', 'shooting guard', 178, 'right-handed', 'in'),
+(7, 1, '50000003G', 'female', 'Lucía', 'Fernández', 'Martín', '2000-03-25', '610333333', 'Plaza España 3, Madrid', 'small forward', 182, 'left-handed', 'in'),
+(8, 1, '50000004H', 'female', 'Elena', 'García', 'Rodríguez', '2001-04-10', '610444444', 'Calle Sol 4, Madrid', 'power forward', 185, 'right-handed', 'in'),
+(9, 1, '50000005I', 'female', 'Paula', 'Pérez', 'González', '2000-05-05', '610555555', 'Avenida Luna 5, Madrid', 'center', 190, 'right-handed', 'in'),
+(10, 1, '50000006J', 'female', 'Sofía', 'Gómez', 'Díaz', '2001-06-15', '610666666', 'Calle Estrella 6, Madrid', 'shooting guard', 176, 'left-handed', 'in'),
+(11, 1, '50000007K', 'female', 'Alba', 'Sánchez', 'Álvarez', '2000-07-20', '610777777', 'Avenida Mar 7, Madrid', 'point guard', 173, 'right-handed', 'in');
 
 -- Insertar jugadores para el equipo 2 (LaSalle Warriors - femenino junior)
-INSERT INTO players (user_id, team_id, nif, gender, name, surname1, surname2, birthdate, phone, address, position, height, hand) VALUES
-(12, 2, '50000008L', 'female', 'Marta', 'Romero', 'Moreno', '2005-08-12', '610888888', 'Calle Alta 8, Madrid', 'center', 183, 'right-handed'),
-(13, 2, '50000009M', 'female', 'Sara', 'Navarro', 'Ruiz', '2006-09-18', '610999999', 'Avenida Baja 9, Madrid', 'power forward', 180, 'right-handed'),
-(14, 2, '50000010N', 'female', 'Julia', 'Torres', 'Castro', '2005-10-23', '611000000', 'Plaza Mayor 10, Madrid', 'small forward', 176, 'left-handed'),
-(15, 2, '50000011O', 'female', 'Andrea', 'Ortega', 'Flores', '2006-11-05', '611111111', 'Calle Ancha 11, Madrid', 'shooting guard', 172, 'right-handed'),
-(16, 2, '50000012P', 'female', 'Claudia', 'Molina', 'Serrano', '2005-12-15', '611222222', 'Avenida Larga 12, Madrid', 'point guard', 170, 'right-handed'),
-(17, 2, '50000013Q', 'female', 'Laura', 'Delgado', 'Ramos', '2006-01-25', '611333333', 'Calle Norte 13, Madrid', 'center', 182, 'left-handed'),
-(18, 2, '50000014R', 'female', 'Cristina', 'Ortiz', 'Medina', '2005-02-14', '611444444', 'Avenida Sur 14, Madrid', 'power forward', 178, 'right-handed');
+INSERT INTO players (user_id, team_id, nif, gender, name, surname1, surname2, birthdate, phone, address, position, height, hand, status) VALUES
+(12, 2, '50000008L', 'female', 'Marta', 'Romero', 'Moreno', '2005-08-12', '610888888', 'Calle Alta 8, Madrid', 'center', 183, 'right-handed', 'in'),
+(13, 2, '50000009M', 'female', 'Sara', 'Navarro', 'Ruiz', '2006-09-18', '610999999', 'Avenida Baja 9, Madrid', 'power forward', 180, 'right-handed', 'in'),
+(14, 2, '50000010N', 'female', 'Julia', 'Torres', 'Castro', '2005-10-23', '611000000', 'Plaza Mayor 10, Madrid', 'small forward', 176, 'left-handed', 'in'),
+(15, 2, '50000011O', 'female', 'Andrea', 'Ortega', 'Flores', '2006-11-05', '611111111', 'Calle Ancha 11, Madrid', 'shooting guard', 172, 'right-handed', 'in'),
+(16, 2, '50000012P', 'female', 'Claudia', 'Molina', 'Serrano', '2005-12-15', '611222222', 'Avenida Larga 12, Madrid', 'point guard', 170, 'right-handed', 'in'),
+(17, 2, '50000013Q', 'female', 'Laura', 'Delgado', 'Ramos', '2006-01-25', '611333333', 'Calle Norte 13, Madrid', 'center', 182, 'left-handed', 'in'),
+(18, 2, '50000014R', 'female', 'Cristina', 'Ortiz', 'Medina', '2005-02-14', '611444444', 'Avenida Sur 14, Madrid', 'power forward', 178, 'right-handed', 'in');
 
 -- Insertar jugadores para el equipo 3 (LaSalle Stars - femenino cadet)
-INSERT INTO players (user_id, team_id, nif, gender, name, surname1, surname2, birthdate, phone, address, position, height, hand) VALUES
-(19, 3, '50000015S', 'female', 'Nuria', 'Reyes', 'Guerrero', '2007-03-20', '611555555', 'Plaza Norte 15, Madrid', 'point guard', 165, 'right-handed'),
-(20, 3, '50000016T', 'female', 'Patricia', 'Lozano', 'Cano', '2008-04-11', '611666666', 'Calle Este 16, Madrid', 'shooting guard', 168, 'right-handed'),
-(21, 3, '50000017U', 'female', 'Raquel', 'Mendoza', 'Prieto', '2007-05-22', '611777777', 'Avenida Oeste 17, Madrid', 'small forward', 172, 'right-handed'),
-(22, 3, '50000018V', 'female', 'Marina', 'Cruz', 'Herrera', '2008-06-13', '611888888', 'Calle Sur 18, Madrid', 'power forward', 175, 'left-handed'),
-(23, 3, '50000019W', 'female', 'Diana', 'Cabrera', 'Marín', '2007-07-24', '611999999', 'Avenida Este 19, Madrid', 'center', 180, 'right-handed'),
-(24, 3, '50000020X', 'female', 'Irene', 'Sáez', 'Vega', '2008-08-15', '612000000', 'Plaza Oeste 20, Madrid', 'small forward', 173, 'right-handed'),
-(25, 3, '50000021Y', 'female', 'Lorena', 'Rubio', 'Román', '2007-09-26', '612111111', 'Calle Centro 21, Madrid', 'point guard', 168, 'left-handed');
+INSERT INTO players (user_id, team_id, nif, gender, name, surname1, surname2, birthdate, phone, address, position, height, hand, status) VALUES
+(19, 3, '50000015S', 'female', 'Nuria', 'Reyes', 'Guerrero', '2007-03-20', '611555555', 'Plaza Norte 15, Madrid', 'point guard', 165, 'right-handed', 'in'),
+(20, 3, '50000016T', 'female', 'Patricia', 'Lozano', 'Cano', '2008-04-11', '611666666', 'Calle Este 16, Madrid', 'shooting guard', 168, 'right-handed', 'in'),
+(21, 3, '50000017U', 'female', 'Raquel', 'Mendoza', 'Prieto', '2007-05-22', '611777777', 'Avenida Oeste 17, Madrid', 'small forward', 172, 'right-handed', 'in'),
+(22, 3, '50000018V', 'female', 'Marina', 'Cruz', 'Herrera', '2008-06-13', '611888888', 'Calle Sur 18, Madrid', 'power forward', 175, 'left-handed', 'in'),
+(23, 3, '50000019W', 'female', 'Diana', 'Cabrera', 'Marín', '2007-07-24', '611999999', 'Avenida Este 19, Madrid', 'center', 180, 'right-handed', 'in'),
+(24, 3, '50000020X', 'female', 'Irene', 'Sáez', 'Vega', '2008-08-15', '612000000', 'Plaza Oeste 20, Madrid', 'small forward', 173, 'right-handed', 'in'),
+(25, 3, '50000021Y', 'female', 'Lorena', 'Rubio', 'Román', '2007-09-26', '612111111', 'Calle Centro 21, Madrid', 'point guard', 168, 'left-handed', 'in');
 
 -- Insertar jugadores para el equipo 4 (LaSalle Lions - masculino senior)
-INSERT INTO players (user_id, team_id, nif, gender, name, surname1, surname2, birthdate, phone, address, position, height, hand) VALUES
-(26, 4, '50000022Z', 'male', 'Daniel', 'Jiménez', 'Muñoz', '2000-10-10', '612222222', 'Avenida Principal 22, Madrid', 'center', 200, 'right-handed'),
-(27, 4, '50000023A', 'male', 'Alejandro', 'Blanco', 'Alonso', '2001-11-05', '612333333', 'Calle Nueva 23, Madrid', 'power forward', 195, 'right-handed'),
-(28, 4, '50000024B', 'male', 'Pablo', 'Morales', 'Santos', '2000-12-15', '612444444', 'Plaza Vieja 24, Madrid', 'small forward', 192, 'left-handed'),
-(29, 4, '50000025C', 'male', 'Sergio', 'Iglesias', 'Castillo', '2001-01-20', '612555555', 'Calle Antigua 25, Madrid', 'shooting guard', 188, 'right-handed'),
-(30, 4, '50000026D', 'male', 'Jorge', 'Hidalgo', 'Cortes', '2000-02-25', '612666666', 'Avenida Moderna 26, Madrid', 'point guard', 185, 'right-handed'),
-(31, 4, '50000027E', 'male', 'David', 'Gallego', 'Rojas', '2001-03-15', '612777777', 'Plaza Central 27, Madrid', 'power forward', 196, 'left-handed'),
-(32, 4, '50000028F', 'male', 'Javier', 'Bravo', 'Soto', '2000-04-18', '612888888', 'Calle Principal 28, Madrid', 'center', 205, 'right-handed');
+INSERT INTO players (user_id, team_id, nif, gender, name, surname1, surname2, birthdate, phone, address, position, height, hand, status) VALUES
+(26, 4, '50000022Z', 'male', 'Daniel', 'Jiménez', 'Muñoz', '2000-10-10', '612222222', 'Avenida Principal 22, Madrid', 'center', 200, 'right-handed', 'in'),
+(27, 4, '50000023A', 'male', 'Alejandro', 'Blanco', 'Alonso', '2001-11-05', '612333333', 'Calle Nueva 23, Madrid', 'power forward', 195, 'right-handed', 'in'),
+(28, 4, '50000024B', 'male', 'Pablo', 'Morales', 'Santos', '2000-12-15', '612444444', 'Plaza Vieja 24, Madrid', 'small forward', 192, 'left-handed', 'in'),
+(29, 4, '50000025C', 'male', 'Sergio', 'Iglesias', 'Castillo', '2001-01-20', '612555555', 'Calle Antigua 25, Madrid', 'shooting guard', 188, 'right-handed', 'in'),
+(30, 4, '50000026D', 'male', 'Jorge', 'Hidalgo', 'Cortes', '2000-02-25', '612666666', 'Avenida Moderna 26, Madrid', 'point guard', 185, 'right-handed', 'in'),
+(31, 4, '50000027E', 'male', 'David', 'Gallego', 'Rojas', '2001-03-15', '612777777', 'Plaza Central 27, Madrid', 'power forward', 196, 'left-handed', 'in'),
+(32, 4, '50000028F', 'male', 'Javier', 'Bravo', 'Soto', '2000-04-18', '612888888', 'Calle Principal 28, Madrid', 'center', 205, 'right-handed', 'in');
 
 -- Insertar jugadores para el equipo 5 (LaSalle Tigers - masculino junior)
-INSERT INTO players (user_id, team_id, nif, gender, name, surname1, surname2, birthdate, phone, address, position, height, hand) VALUES
-(33, 5, '50000029G', 'male', 'Miguel', 'Pardo', 'Suárez', '2005-05-12', '612999999', 'Avenida Alta 29, Madrid', 'point guard', 180, 'right-handed'),
-(34, 5, '50000030H', 'male', 'Hugo', 'Vidal', 'Esteban', '2006-06-23', '613000000', 'Calle Baja 30, Madrid', 'shooting guard', 183, 'right-handed'),
-(35, 5, '50000031I', 'male', 'Adrián', 'Sierra', 'Hernández', '2005-07-14', '613111111', 'Plaza Grande 31, Madrid', 'small forward', 187, 'left-handed'),
-(36, 5, '50000032J', 'male', 'Marcos', 'Pastor', 'Gutiérrez', '2006-08-25', '613222222', 'Calle Corta 32, Madrid', 'power forward', 192, 'right-handed'),
-(37, 5, '50000033K', 'male', 'Óscar', 'Vargas', 'Méndez', '2005-09-16', '613333333', 'Avenida Larga 33, Madrid', 'center', 198, 'right-handed'),
-(38, 5, '50000034L', 'male', 'Alberto', 'León', 'Santiago', '2006-10-27', '613444444', 'Plaza Pequeña 34, Madrid', 'shooting guard', 185, 'left-handed'),
-(39, 5, '50000035M', 'male', 'Raúl', 'Peña', 'Fuentes', '2005-11-18', '613555555', 'Calle Estrecha 35, Madrid', 'small forward', 188, 'right-handed');
+INSERT INTO players (user_id, team_id, nif, gender, name, surname1, surname2, birthdate, phone, address, position, height, hand, status) VALUES
+(33, 5, '50000029G', 'male', 'Miguel', 'Pardo', 'Suárez', '2005-05-12', '612999999', 'Avenida Alta 29, Madrid', 'point guard', 180, 'right-handed', 'in'),
+(34, 5, '50000030H', 'male', 'Hugo', 'Vidal', 'Esteban', '2006-06-23', '613000000', 'Calle Baja 30, Madrid', 'shooting guard', 183, 'right-handed', 'in'),
+(35, 5, '50000031I', 'male', 'Adrián', 'Sierra', 'Hernández', '2005-07-14', '613111111', 'Plaza Grande 31, Madrid', 'small forward', 187, 'left-handed', 'in'),
+(36, 5, '50000032J', 'male', 'Marcos', 'Pastor', 'Gutiérrez', '2006-08-25', '613222222', 'Calle Corta 32, Madrid', 'power forward', 192, 'right-handed', 'in'),
+(37, 5, '50000033K', 'male', 'Óscar', 'Vargas', 'Méndez', '2005-09-16', '613333333', 'Avenida Larga 33, Madrid', 'center', 198, 'right-handed', 'in'),
+(38, 5, '50000034L', 'male', 'Alberto', 'León', 'Santiago', '2006-10-27', '613444444', 'Plaza Pequeña 34, Madrid', 'shooting guard', 185, 'left-handed', 'in'),
+(39, 5, '50000035M', 'male', 'Raúl', 'Peña', 'Fuentes', '2005-11-18', '613555555', 'Calle Estrecha 35, Madrid', 'small forward', 188, 'right-handed', 'in');
 
 -- Insertar jugadores para el equipo 6 (LaSalle Panthers - masculino cadet)
-INSERT INTO players (user_id, team_id, nif, gender, name, surname1, surname2, birthdate, phone, address, position, height, hand) VALUES
-(40, 6, '50000036N', 'male', 'Rubén', 'Benítez', 'Campos', '2007-12-19', '613666666', 'Avenida Ancha 36, Madrid', 'center', 190, 'right-handed'),
-(41, 6, '50000037O', 'male', 'Diego', 'Bermejo', 'Vega', '2008-01-10', '613777777', 'Calle Grande 37, Madrid', 'power forward', 185, 'right-handed'),
-(42, 6, '50000038P', 'male', 'Mario', 'Carrasco', 'Calvo', '2007-02-21', '613888888', 'Plaza Circular 38, Madrid', 'small forward', 180, 'left-handed'),
-(43, 6, '50000039Q', 'male', 'Iván', 'Herrero', 'Serra', '2008-03-12', '613999999', 'Calle Redonda 39, Madrid', 'shooting guard', 178, 'right-handed'),
-(44, 6, '50000040R', 'male', 'Víctor', 'Aguilar', 'Pascual', '2007-04-23', '614000000', 'Avenida Recta 40, Madrid', 'point guard', 175, 'right-handed'),
-(45, 6, '50000041S', 'male', 'Eduardo', 'Soler', 'Nieto', '2008-05-14', '614111111', 'Plaza Cuadrada 41, Madrid', 'power forward', 182, 'left-handed'),
-(46, 6, '50000042T', 'male', 'Samuel', 'Ferrer', 'Santana', '2007-06-25', '614222222', 'Calle Curva 42, Madrid', 'center', 187, 'right-handed');
+INSERT INTO players (user_id, team_id, nif, gender, name, surname1, surname2, birthdate, phone, address, position, height, hand, status) VALUES
+(40, 6, '50000036N', 'male', 'Rubén', 'Benítez', 'Campos', '2007-12-19', '613666666', 'Avenida Ancha 36, Madrid', 'center', 190, 'right-handed', 'in'),
+(41, 6, '50000037O', 'male', 'Diego', 'Bermejo', 'Vega', '2008-01-10', '613777777', 'Calle Grande 37, Madrid', 'power forward', 185, 'right-handed', 'in'),
+(42, 6, '50000038P', 'male', 'Mario', 'Carrasco', 'Calvo', '2007-02-21', '613888888', 'Plaza Circular 38, Madrid', 'small forward', 180, 'left-handed', 'in'),
+(43, 6, '50000039Q', 'male', 'Iván', 'Herrero', 'Serra', '2008-03-12', '613999999', 'Calle Redonda 39, Madrid', 'shooting guard', 178, 'right-handed', 'in'),
+(44, 6, '50000040R', 'male', 'Víctor', 'Aguilar', 'Pascual', '2007-04-23', '614000000', 'Avenida Recta 40, Madrid', 'point guard', 175, 'right-handed', 'in'),
+(45, 6, '50000041S', 'male', 'Eduardo', 'Soler', 'Nieto', '2008-05-14', '614111111', 'Plaza Cuadrada 41, Madrid', 'power forward', 182, 'left-handed', 'in'),
+(46, 6, '50000042T', 'male', 'Samuel', 'Ferrer', 'Santana', '2007-06-25', '614222222', 'Calle Curva 42, Madrid', 'center', 187, 'right-handed', 'in');
 
 -- Insertar datos de los miembros
 INSERT INTO member (user_id, nif, name, surname, phone, family) VALUES
