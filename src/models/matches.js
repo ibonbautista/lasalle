@@ -1,8 +1,5 @@
 import { DataTypes } from "sequelize";
 import connection from "../config/db.js";
-import Season from "./seasons.js";
-/* import Team from "./teams.js";
-import Rival from "./rivals.js"; */
 
 const Match = connection.define("matches",{
     
@@ -45,14 +42,5 @@ const Match = connection.define("matches",{
         allowNull: true,
     }
 })
-
-/* Season.hasMany(Match,{foreignKey:"season_id"});
-Match.belongsTo(Season,{foreignKey:"season_id"}); 
-
-Team.hasMany(Match,{foreignKey:"team_id"});
-Match.belongsTo(Team,{foreignKey:"team_id"}); 
-
-Rival.hasMany(Match,{foreignKey:"rival_id"});
-Match.belongsTo(Rival,{foreignKey:"rival_id"});  */
 
 export default Match;

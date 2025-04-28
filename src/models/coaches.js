@@ -1,7 +1,5 @@
 import { DataTypes } from "sequelize";
 import connection from "../config/db.js";
-/* import Team from "./teams.js";
-import CoachTeam from "./coaches_teams.js"; */
 
 const Coach = connection.define("coaches",{
     
@@ -49,10 +47,11 @@ const Coach = connection.define("coaches",{
     title: {
         type: DataTypes.ENUM('none', 'made', 'level 1', 'level 2', 'level 3'),
         allowNull: false
+    },
+    state: {
+        type: DataTypes.ENUM('in', 'free', 'out'),
+        allowNull: false
     }
 })
-
-/* Coach.belongsToMany(Team, { through: 'coaches_teams', foreignKey: 'coach_id' });
-Team.belongsToMany(Coach, { through: 'coaches_teams', foreignKey: 'team_id' }); */
 
 export default Coach;

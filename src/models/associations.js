@@ -32,8 +32,6 @@ Match.belongsTo(Team, { foreignKey: 'team_id' });
 Rival.hasMany(Match, { foreignKey: 'rival_id' });
 Match.belongsTo(Rival, { foreignKey: 'rival_id' });
 
-/* Team.hasMany(Season, { foreignKey: 'season_id' });
-Season.belongsTo(Team, { foreignKey: 'team_id' }); */
 Season.hasMany(Team, { foreignKey: "season_id" });
 Team.belongsTo(Season, { foreignKey: "season_id" });
 

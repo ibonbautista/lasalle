@@ -1,6 +1,5 @@
 import { DataTypes } from "sequelize";
 import connection from "../config/db.js";
-/* import User from "./users.js"; */
 
 const Member = connection.define("member",{
     
@@ -35,9 +34,5 @@ const Member = connection.define("member",{
         allowNull: false
     }
 })
-
-
-/* Doctor.hasOne(Room,{foreignKey:"room_id"});
-Room.belongsTo(Doctor,{foreignKey:"room_id"}); */
 
 export default Member;

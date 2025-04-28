@@ -1,28 +1,28 @@
 
-class DoctorNameNotProvided extends Error{
+class UserNameNotProvided extends Error{
     constructor(){
-        super("Doctor's name not provided");
+        super("User's name not provided");
         this.statusCode = 400;
     }
 }
 
-class DoctorSurnameNotProvided extends Error{
+class UserSurnameNotProvided extends Error{
     constructor(){
-        super("Doctor's surname not provided");
+        super("User's surname not provided");
         this.statusCode = 400;
     }
 }
 
-class DoctorSpecialityNotProvided extends Error{
+class UserSpecialityNotProvided extends Error{
     constructor(){
-        super("Doctor's speciality not provided");
+        super("User's speciality not provided");
         this.statusCode = 400;
     }
 }
 
-class DoctorTelephoneNotProvided extends Error{
+class UserTelephoneNotProvided extends Error{
     constructor(){
-        super("Doctor's telephone not provided");
+        super("User's telephone not provided");
         this.statusCode = 400;
     }
 }
@@ -50,7 +50,7 @@ class UserPasswordNotProvided extends Error{
 
 class UserRoleIncorrect extends Error{
     constructor(){
-        super("User role is not correct, must be pacient o doctor");
+        super("User role is not correct, must be coach o User");
         this.statusCode = 400;
     }
 }
@@ -70,10 +70,10 @@ class UserInvalidCredentials extends Error{
 }
 
 export {
-    DoctorNameNotProvided,
-    DoctorSurnameNotProvided,
-    DoctorSpecialityNotProvided,
-    DoctorTelephoneNotProvided,
+    UserNameNotProvided,
+    UserSurnameNotProvided,
+    UserSpecialityNotProvided,
+    UserTelephoneNotProvided,
     UserNameProvided,
     UserMailProvided,
     UserPasswordNotProvided,

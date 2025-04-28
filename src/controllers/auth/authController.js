@@ -1,45 +1,30 @@
- import User from "../../models/users.js";
+import User from "../../models/users.js";
 import Member from "../../models/members.js";
-/*import Patient from "../../models/patients.js"; */
 import { hash, compare } from "../../utils/bcrypt.js";
-import {
-    UserMailProvided,
-    UserEmailAlreadyExists,
-    UserNameProvided,
-    UserRoleIncorrect,
-    UserPasswordNotProvided,
-    UserInvalidCredentials
-} from "../../utils/errors.js";
 
+//FUNCTION FOR LOG IN A USER
 async function login(email, password) {
-    if (!email) throw new UserMailProvided();
-    if (!password) throw new UserPasswordNotProvided();
-
     const user = await User.findOne({ where: { email } });
-
-    if (!user) throw new UserInvalidCredentials();
-
     const isSamePassword = await compare(password, user.password);
-
-    if (!isSamePassword) throw new UserInvalidCredentials();
     
-    const role = user.role;
-    if (!role) throw new UserRoleIncorrect();
-
-    return user;
+    //If out date has date, we delete user to create again
+    if(user.out_date != null){
+        await User.destroy({where: {user_id: user.user_id}});
+        return user;
+    }else{
+        const role = user.role;
+        return user;
+    }
 }
 
+//FUNCTION FOR REGISTER A NEW MEMBER
 async function register(userData) {
-    if (!userData.name) throw new UserNameProvided();
-    if (!userData.email) throw new UserMailProvided();
-    if (!userData.password) throw new UserPasswordNotProvided();
-    
     userData.role = "member";
     userData.in_date = new Date();
     
     const oldUser = await User.findOne({ where: { email: userData.email } });
     if (oldUser) {
-        throw new UserEmailAlreadyExists();
+        return oldUser;
     }
 
     userData.password = await hash(userData.password);
@@ -59,13 +44,13 @@ async function register(userData) {
 } 
 
 
-function logout(req, res) {
+/* function logout(req, res) {
     req.session.user = undefined;
     res.redirect("/");
-}
+} */
 
 export default {
     register,
     login,
-    logout
+    /* logout */
 };

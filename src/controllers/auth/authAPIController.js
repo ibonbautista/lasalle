@@ -5,6 +5,7 @@ async function login(req, res) {
     try {
         const { email, password } = req.body;
         const result = await authController.login(email, password);
+    
         const data = {
             user_id: result.user_id,
             role: result.role

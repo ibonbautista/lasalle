@@ -28,78 +28,55 @@ function isLoggedInAPI(req, res, next) {
     }
 }
 
-// Middleware específico para role = patient
+// Middelware for admin
 function isAdmin(req, res, next) {
     const user = req.user;
     if (!user) {
-        return res.redirect("/login?error=You+are+not+logged+in");
+        return res.status(401).json({ error: "You are not logged in" });
     }
     if (user.role === "admin") {
         return next();
     }
-    return res.redirect("/login?error=You+are+not+an+admin");
+    return res.status(401).json({ error: "You are not an admin" });
 }
 
 // Middleware específico para role = player
 function isPlayer(req, res, next) {
     const user = req.user;
     if (!user) {
-        return res.redirect("/login?error=You+are+not+logged+in");
+        return res.status(401).json({ error: "You are not logged in" });
     }
     if (user.role === "player") {
         return next();
     }
-    return res.redirect("/login?error=You+are+not+a+player");
+    return res.status(401).json({ error: "You are not an player" });
 }
 
 // Middleware específico para role = coach
 function isCoach(req, res, next) {
     const user = req.user;
     if (!user) {
-        return res.redirect("/login?error=You+are+not+logged+in");
+        return res.status(401).json({ error: "You are not logged in" });
     }
     if (user.role === "coach") {
         return next();
     }
-    return res.redirect("/login?error=You+are+not+a+coach");
+    return res.status(401).json({ error: "You are not an coach" });
 }
 
 // Middleware específico para role = member
 function isMember(req, res, next) {
     const user = req.user;
     if (!user) {
-        return res.redirect("/login?error=You+are+not+logged+in");
+        return res.status(401).json({ error: "You are not logged in" });
     }
     if (user.role === "member") {
         return next();
     }
-    return res.redirect("/login?error=You+are+not+a+member");
+    return res.status(401).json({ error: "You are not a member" });
 }
-
-/* // Middleware para sesiones (vistas)
-function isLoggedInSession(req, res, next) {
-    const user = req.session.user;
-    if (!user) {
-        return res.redirect("/login?error=You+are+not+logged+in");
-    }
-    // Opcional: comprobar si el usuario aún existe en base de datos
-    next();
-} */
-
-/* function isAuthenticated(req, res, next) {
-    if (req.session && req.session.user) {
-        // El usuario está logueado, continuamos
-        next();
-    } else {
-        // No está logueado, redirigimos a login
-    res.redirect('/login?error=You+need+to+log+in+first');
-}
-}
-
-export default isAuthenticated; */
 
 export {
-    /* isLoggedInSession, */
     isLoggedInAPI,
     isAdmin,
     isPlayer,
