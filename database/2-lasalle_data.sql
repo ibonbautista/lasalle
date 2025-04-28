@@ -23,6 +23,10 @@ INSERT INTO rivals (name) VALUES
 ('Sevilla Hoops'),
 ('Málaga Sharks');
 
+-- Insertar admin
+INSERT INTO users (email, password, role, in_date) VALUES
+('admin@lasalle.edu', '$2b$10$3hlItH6DsK5FMGuhhgsGj.IivU6zHhKREr5o3X4V72qnHoq44NLBK', 'admin', '2024-08-01');
+
 -- Insertar usuarios (para entrenadores y jugadores)
 -- Entrenadores (4)
 INSERT INTO users (email, password, role, in_date) VALUES
