@@ -12,7 +12,7 @@ import userRouter from "./userRouter.js";
 const router = Router();
 
 router.get("/",(req,res)=>{
-    res.send("welcome to the api world");
+    res.send("welcome to CLUB DEPORTIVO LA SALLE");
 })
 
 router.use("/players", isLoggedInAPI,playerRouter);
