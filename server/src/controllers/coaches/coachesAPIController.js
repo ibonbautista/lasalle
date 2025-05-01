@@ -59,13 +59,13 @@ async function fireCoach(req,res){
 async function unassignCoach(req,res){
     const id = req.params.id;
     try {
-        const relaxedCoach = await coachController.relaxCoach(id);
+        const relaxedCoach = await coachController.unassignCoach(id);
     
         if (!relaxedCoach) {
           return res.status(404).json({ mensaje: 'Not finded coach' });
         }
     
-        res.json({ message: 'Coach relaxed', coach: relaxCoach });
+        res.json({ message: 'Coach relaxed', coach: relaxedCoach });
       } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Error during coach relax' });
