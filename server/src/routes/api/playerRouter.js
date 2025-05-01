@@ -5,7 +5,7 @@ import playerAPIController from "../../controllers/players/playersAPIController.
 
 const router = Router();
 
-router.get("/", isAdmin, playerAPIController.getAll)
+router.get("/", playerAPIController.getAll)
 router.get("/team/:team", playerAPIController.getPlayerByTeam)
 router.get("/gender/:gender", playerAPIController.getPlayerByGender)
 router.get("/name/:name", isAdmin, playerAPIController.getPlayerByName)

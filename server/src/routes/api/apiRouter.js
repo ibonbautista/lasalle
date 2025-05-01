@@ -15,7 +15,7 @@ router.get("/",(req,res)=>{
     res.send("welcome to CLUB DEPORTIVO LA SALLE");
 })
 
-router.use("/players", isLoggedInAPI,playerRouter);
+router.use("/players",playerRouter);
 router.use("/teams", teamRouter);
 router.use("/coaches",isLoggedInAPI,coachRouter);
 router.use("/matches", matchRouter);
