@@ -1,0 +1,98 @@
+/* Estilos generales */
+.grid-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 50vh;
+  margin-bottom: 30px;
+}
+
+.grid-options-admin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin-top: 50px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas por defecto */
+  gap: 20px;
+  max-width: 900px;
+  width: 100%;
+  padding: 0 20px; /* Agrega un pequeño padding lateral */
+}
+
+.grid-item {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+  border: 5px solid #ddcc0b;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.grid-item:hover {
+  transform: scale(1.10);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  background-color: #060e9f;
+}
+
+.link-full {
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  color: #040404;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.grid-item:hover .link-full {
+  color: #fff;
+}
+
+.link-full svg {
+  display: block;
+  margin: 0 auto 10px;
+  width: 50px;
+  height: 50px;
+}
+
+/* Media Queries para pantallas más pequeñas */
+@media (max-width: 1024px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas en pantallas medianas */
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-container {
+    grid-template-columns: 1fr; /* 1 columna en pantallas muy pequeñas */
+    padding: 0 10px; /* Menor padding lateral */
+  }
+
+  .grid-item {
+    padding: 15px; /* Reducimos el padding dentro de los items */
+  }
+
+  .link-full {
+    font-size: 1.2em; /* Ajustamos el tamaño del texto */
+  }
+
+  .link-full svg {
+    width: 40px; /* Reducimos el tamaño de los iconos */
+    height: 40px;
+  }
+}

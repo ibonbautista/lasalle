@@ -15,7 +15,8 @@ const Member = connection.define("member",{
     },
     nif: {
         type: DataTypes.STRING(15),
-        allowNull: false
+        allowNull: false,
+        unique: true
     },
     name: {
         type: DataTypes.STRING(45),

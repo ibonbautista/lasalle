@@ -5,7 +5,8 @@ import coachAPIController from "../../controllers/coaches/coachesAPIController.j
 
 const router = Router();
 
- router.get("/", isAdmin, coachAPIController.getAll)
+ router.get("/", coachAPIController.getAll)
+ router.get("/team/:team", coachAPIController.getCoachByTeamId)
  router.get("/gender/:gender", coachAPIController.getCoachByGender)
  router.get("/name/:name", isAdmin, coachAPIController.getCoachByName)
  router.get("/surname/:surname", isAdmin, coachAPIController.getCoachBySurname)

@@ -7,6 +7,7 @@ import coachRouter from "./coachRouter.js";
 import matchRouter from "./matchRouter.js";
 import authRouter from "./authRouter.js";
 import memberRouter from "./memberRouter.js";
+import rivalRouter from "./rivalRouter.js";
 import userRouter from "./userRouter.js";
 
 const router = Router();
@@ -17,11 +18,12 @@ router.get("/",(req,res)=>{
 
 router.use("/players",playerRouter);
 router.use("/teams", teamRouter);
-router.use("/coaches",isLoggedInAPI,coachRouter);
+router.use("/coaches",coachRouter);
 router.use("/matches", matchRouter);
-router.use("/members", isLoggedInAPI,memberRouter);
-router.use("/users", isLoggedInAPI,userRouter);
-router.use("/feedbacks", isLoggedInAPI,matchFeedbacksRouter);
+router.use("/members",memberRouter);
+router.use("/rivals",rivalRouter);
+router.use("/users",userRouter);
+router.use("/feedbacks",matchFeedbacksRouter);
 router.use("/",authRouter);
 
 export default router;

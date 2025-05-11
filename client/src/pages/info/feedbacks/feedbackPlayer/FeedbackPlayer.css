@@ -1,0 +1,118 @@
+.feedback-list-cards {
+    padding: 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Para organizar en dos bloques */
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 50px; /* Espacio entre el contenido y el footer */
+    margin-top: 50px;
+  }
+  
+  .section-title {
+    font-size: 1.9em;
+    font-weight: bold;
+    color: #f4f4f8;
+    margin-bottom: 16px;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .feedback-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Esto es flexible */
+    gap: 15px;
+    justify-items: center;
+    padding: 0 20px;
+    width: 90%;
+    max-width: 2300px;
+  }
+  
+  .feedback-card {
+    background-color: #b2afaf;
+    border: 2px solid #ddcc0b;
+    border-radius: 12px;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 550px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .feedback-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .feedback-card-title {
+    font-size: 1.7em;
+    font-weight: bold;
+    color: #040303;
+    margin-bottom: 10px;
+  }
+  
+  .feedback-card-info p {
+    margin: 5px 0;
+    font-size: 1.30em;
+    color: #060505;
+  }
+  
+  .feedback-card-info span {
+    font-weight: bold;
+    color: #060e9f;
+  }
+  
+  .feedback-card-comment {
+    margin-top: 18px;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #f4f4f4;
+    text-align: left;
+  }
+  
+  .feedback-card-comment h3 {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #050506;
+  }
+
+  .no-feedback-message {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #f4f4f8;
+    background-color: #d63f2b;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 120px;
+    width: 100%;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  
+  /* Media Queries */
+  
+  /* Pantallas grandes (más de 1024px) */
+  @media (min-width: 1024px) {
+    .feedback-card-container {
+      grid-template-columns: repeat(3, 1fr); /* 3 partidos por fila */
+    }
+  }
+  
+  /* Pantallas medianas (hasta 768px) */
+  @media (max-width: 768px) {
+    .feedback-card-container {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 2 por fila */
+    }
+  }
+  
+  /* Pantallas pequeñas (hasta 480px) */
+  @media (max-width: 480px) {
+    .feedback-card-container {
+      grid-template-columns: 1fr; /* 1 por fila */
+    }
+  }
+  

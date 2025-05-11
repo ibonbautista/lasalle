@@ -15,7 +15,8 @@ const Coach = connection.define("coaches",{
     },
     nif: {
         type: DataTypes.STRING(15),
-        allowNull: false
+        allowNull: false,
+        unique: true
     },
     gender: {
         type: DataTypes.ENUM('female', 'male','other'),

@@ -3,18 +3,14 @@ import { verifyToken } from "../utils/token.js";
 
 // Middleware para APIs (token JWT)
 function isLoggedInAPI(req, res, next) {
-    const authorization = req.headers.authorization;
+    const token = req.cookies?.token;
     
-    if (!authorization) {
+    if (!token) {
         return res.status(401).json({ error: "You shall not pass" });
     }
     
-    const parts = authorization.split(" ");
-    const token = parts.length === 2 ? parts[1] : null;
-    
-    if (!token) {
-        return res.status(401).json({ error: "Invalid authorization header format" });
-    }
+    /* const parts = authorization.split(" ");
+    const token = parts.length === 2 ? parts[1] : null; */
     
     const result = verifyToken(token);
     if (result) {

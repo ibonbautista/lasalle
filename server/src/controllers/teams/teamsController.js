@@ -3,7 +3,12 @@ import Season from "../../models/seasons.js";
 
 //SHOW ALL TEAMS
 async function getAll(){
-    const teams = await Team.findAll();
+    const teams = await Team.findAll({
+        include: {
+            model: Season,
+            attributes: ['name']
+        }
+    });
     return teams;
 }
 

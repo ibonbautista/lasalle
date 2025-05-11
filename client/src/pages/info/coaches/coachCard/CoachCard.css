@@ -1,0 +1,91 @@
+.coach-list-cards {
+  padding: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Asegura que ocupe toda la altura de la pantalla */
+}
+
+.coach-card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ajusta a 3 por fila en pantallas grandes */
+  gap: 16px;
+  justify-items: center; /* Centra las tarjetas dentro del contenedor */
+  padding: 0 20px;
+  width: 100%;
+  max-width: 1200px; /* Limita el ancho máximo para las filas de tarjetas */
+  margin-top: 30px; /* Añadido margen superior */
+  margin-bottom: 30px; /* Añadido margen inferior */
+}
+
+.coach-card {
+  background-color: #c6c1c1;
+  border: 2px solid #ddcc0b;
+  border-radius: 12px;
+  padding: 30px;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.coach-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.coach-card-title {
+  font-size: 1.35em;
+  font-weight: bold;
+  color: #040303; /* Color oscuro para los títulos */
+  margin-bottom: 35px;
+  text-align: center;
+}
+
+.coach-card-info p {
+  margin: 5px 0;
+  font-size: 1.45em;
+  color: #080707;
+}
+
+.coach-card-info span {
+  font-weight: bold;
+  color: #060e9f; /* Color azul para las etiquetas */
+}
+
+.coach-card-teams {
+  margin-top: 30px;
+}
+
+.coach-card-teams h3 {
+  font-weight: bold;
+  font-size: 1.45em;
+  margin-bottom: 8px;
+  color: #060e9f; /* Color azul para los subtítulos */
+}
+
+.team {
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.team p {
+  margin: 5px 0;
+  font-size: 1.25em;
+  color: #050505;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .coach-card-container {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* 2 columnas en pantallas pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  .coach-card-container {
+    grid-template-columns: 1fr; /* 1 columna en pantallas muy pequeñas */
+  }
+}

@@ -1,0 +1,74 @@
+.player-info-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(70vh - 100px);
+  padding: 20px;
+}
+
+.player-info-card {
+  background-color: #f4f4f4;
+  border: 2px solid #ddcc0b;
+  border-radius: 12px;
+  padding: 25px 30px;
+  width: 100%;
+  max-width: 650px;
+  margin: 10px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.player-info-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.player-info-title {
+  font-size: 1.9em;
+  font-weight: bold;
+  color: #040303;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.player-info-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.player-info-content p {
+  margin: 8px 0;
+  color: #060606;
+  font-size: 1.3em;
+  flex: 1 0 45%; /* Asegura que cada párrafo ocupe aproximadamente la mitad del ancho */
+}
+
+.player-info-content p strong {
+  color: #060c8d;
+  font-weight: bold;
+}
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .player-info-content {
+    flex-direction: column; /* Apilar los párrafos verticalmente en pantallas pequeñas */
+    align-items: flex-start; /* Alineación a la izquierda */
+    gap: 10px; /* Añadir un pequeño espacio entre los elementos */
+  }
+
+  .player-info-content p {
+    width: 100%; /* Las columnas ocupan todo el ancho */
+    font-size: 1.1em; /* Reducir el tamaño del texto */
+  }
+
+  /* Cambiar el orden de los párrafos en pantallas pequeñas */
+  .player-info-content p:nth-child(odd) {
+    order: 1; /* Primero los de la columna izquierda */
+  }
+
+  .player-info-content p:nth-child(even) {
+    order: 2; /* Luego los de la columna derecha */
+  }
+}

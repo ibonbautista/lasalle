@@ -7,7 +7,22 @@ import {  } from "../../utils/errors.js";
 
 //SHOW ALL MATCHES
 async function getAll(){
-    const matches = await Match.findAll();
+    const matches = await Match.findAll({
+        include: [
+          {
+            model: Team,
+            attributes: ["name"],
+          },
+          {
+            model: Rival,
+            attributes: ["name"],
+          },
+          {
+            model: Season,
+            attributes: ["name"],
+          },
+        ],
+      });
     return matches;
 }
 
@@ -30,10 +45,15 @@ async function getMatchBySeason(season){
 
 //SHOW MATCHES BY TEAM
 async function getMatchByTeam(team){
-    const filter = {include: [{
-                        model: Team, 
-                        where: {name: team}
-                    }]
+    const filter = {include: [
+      {
+          model: Team,
+          where: { name: team },
+      },
+      {
+          model: Rival,
+      }
+  ]
                    };
     const matches = await Match.findAll(filter);
     return matches;

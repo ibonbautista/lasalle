@@ -113,7 +113,31 @@ async function unassignCoach(id){
 
 //SHOW ALL COACHES
 async function getAll(){
-    const coaches = await Coach.findAll();
+    const coaches = await Coach.findAll({
+        include: {
+          model: Team,
+          through: {
+            attributes: ['role']
+          }
+        }
+      });
+    return coaches;
+}
+
+//SHOW COACHES BY TEAM
+async function getCoachByTeamId(teamId){
+    console.log("teamId recibido:", teamId);
+    const coaches = await Coach.findAll({
+        include: [
+            {
+                model: Team,
+                where: { team_id: teamId },  // Aquí filtramos por team_id
+                through: {
+                    attributes: ['role'],
+                },
+            },
+        ],
+    });
     return coaches;
 }
 
@@ -225,6 +249,7 @@ export default{
     unassignCoach,
     getAll, 
     getCoachById,
+    getCoachByTeamId,
     getCoachByGender,
     getCoachByName,
     getCoachBySurname,

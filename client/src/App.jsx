@@ -1,32 +1,48 @@
-import { useEffect, useState } from 'react';
+//IMPORTS EXTERNOS
+import { useEffect, useState, useContext } from 'react';
 
-import PlayerCard from './components/playerCard/PlayerCard';
-import PlayerList from './components/playerList/PlayerList';
-import fetchData from './utils/api/fetch.js';
+//IMPORTS ARCHIVOS INTERNOS
+import { AuthProvider, AuthContext } from './context/AuthContext.jsx';
+import Greeting from './components/greeting/Greeting.jsx';
+import Auth from './pages/auth/Auth.jsx';
+import { saveToken,removeToken, getUserRoleFromToken, getToken} from './utils/localStorage.js';
 
+//CSS Y DATA
 import './App.css'
 
 function App() {
   //ESTADOS
-  const [count, setCount] = useState(0);
-  const [players, setPlayers] = useState([]); //array vacio
-
+  const [route, setRoute] = useState('login');
+  
   //EFECTOS
+  const {userData} = useContext(AuthContext);
   useEffect(() => {
-    handleFetchData();
-  },[]);
-
-  //HANDLES
-  const handleFetchData = async() => {
-    const data = await fetchData('/players'); //hacemos el fetch
-    setPlayers(data); //no se puede asignar sirectamente, usamos el set
+    // Aquí puedes hacer algo cuando el usuario se loguee o cierre sesión
+    console.log(userData);
+  }, [userData]);
+  
+  //FUNCIONES
+  const handleRouteChange = (newRoute) => {
+    setRoute(newRoute);
+  }
+  
+  //RUTAS
+  const routes = {
+    home: "home",
+    login: <Auth />,
+    players: <PlayerList />
   }
 
-  return (
-    <>
-      <PlayerList players={players} />
-    </>
-  )
+      return (
+        <>
+          <RouteContext value={{route:route, onRouteChange:handleRouteChange}}>
+            <AuthProvider>
+            {routes[route]}
+            <Greeting />
+            </AuthProvider>
+          </RouteContext>
+        </>
+      )
 }
 
 export default App

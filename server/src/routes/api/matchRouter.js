@@ -5,9 +5,9 @@ import matchAPIController from "../../controllers/matches/matchesAPIController.j
 
 const router = Router();
 
- router.get("/", isAdmin, matchAPIController.getAll)
+ router.get("/", matchAPIController.getAll)
  router.get("/season/:season", isAdmin,  matchAPIController.getMatchBySeason)
- router.get("/team/:team", isAdmin,  matchAPIController.getMatchByTeam)
+ router.get("/team/:team",  matchAPIController.getMatchByTeam)
  router.get("/rival/:rival", isAdmin,  matchAPIController.getMatchByRival)
  router.get("/:id", isAdmin,  matchAPIController.getMatchById)  
 
