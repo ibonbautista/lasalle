@@ -5,7 +5,7 @@ import playerAPIController from "../../controllers/players/playersAPIController.
 
 const router = Router();
 
-router.get("/", isAdmin, playerAPIController.getAll)
+router.get("/", playerAPIController.getAll)
 router.get("/team/:team", playerAPIController.getPlayerByTeam)
 router.get("/gender/:gender", playerAPIController.getPlayerByGender)
 router.get("/name/:name", isAdmin, playerAPIController.getPlayerByName)
@@ -16,10 +16,10 @@ router.get("/position/:position", playerAPIController.getPlayerByPosition)
 router.get("/heightplus/:height", playerAPIController.getPlayerByHeightPlus)
 router.get("/heightminus/:height", playerAPIController.getPlayerByHeightMinus)
 router.get("/hand/:hand", playerAPIController.getPlayerByHand)
-router.get("/:id", isPlayer, playerAPIController.getPlayerById)
+router.get("/:id", playerAPIController.getPlayerById)
 router.delete("/delete/:id", isAdmin, playerAPIController.deletePlayer)
 router.post("/register", isAdmin, playerAPIController.createPlayer)
-router.patch("/:id", isPlayer, playerAPIController.editPlayer)
+router.patch("/edit/:id", playerAPIController.editPlayer)
 router.get("/:id/matches", isPlayer, playerAPIController.getMatchByPlayer)
 router.get("/:id/feedback", isPlayer, playerAPIController.getFeedbackByPlayer)
 

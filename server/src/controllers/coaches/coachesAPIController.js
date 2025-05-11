@@ -84,6 +84,18 @@ async function getAll (req,res){
     }
 }
 
+//SHOW ALL COACHES BY TEAM
+async function getCoachByTeamId (req,res){
+  try{
+    const id = req.params.team;
+      const coaches = await coachController.getCoachByTeamId(id);
+      res.json(coaches);
+  }catch(error){
+      console.error(error);
+      res.status(500).json({error: "Server Error"});
+  }
+}
+
 //SHOW COACH BY ID
 async function getCoachById (req,res){
     try{
@@ -186,6 +198,7 @@ export default{
     unassignCoach,
     getAll,
     getCoachById ,
+    getCoachByTeamId,
     getCoachByGender,
     getCoachByName,
     getCoachBySurname,

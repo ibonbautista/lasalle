@@ -5,9 +5,9 @@ import { isCoach,isAdmin,isMember,isPlayer } from "../../middleware/authMiddlewa
 
 const router = Router();
 
- router.delete("/:id", isAdmin, memberAPIController.deleteMember)
+ router.delete("/delete/:id", memberAPIController.deleteMember)
  router.patch("/:id", isMember, memberAPIController.editMember)
- router.get("/",isAdmin, memberAPIController.getAll)
+ router.get("/", memberAPIController.getAll)
 
 
 export default router;

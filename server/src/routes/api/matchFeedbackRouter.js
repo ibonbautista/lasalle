@@ -5,9 +5,9 @@ import matchFeedbacksAPIController from "../../controllers/matches_feedbacks/mat
 
 const router = Router();
 
- router.get("/", isAdmin, matchFeedbacksAPIController.getAll)
+ router.get("/", matchFeedbacksAPIController.getAll)
  router.get("/match/:match", isAdmin, matchFeedbacksAPIController.getFeedbacksByMatch)
  router.get("/coach/:coach", isAdmin, matchFeedbacksAPIController.getFeedbacksByCoach)
- router.get("/player/:player", isAdmin, matchFeedbacksAPIController.getFeedbacksByPlayer)
+ router.get("/player/:player", matchFeedbacksAPIController.getFeedbacksByPlayerId)
 
 export default router;

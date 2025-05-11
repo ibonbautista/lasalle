@@ -85,13 +85,29 @@ async function deletePlayer(id){
 
 //SHOW ALL PLAYERS
 async function getAll(){
-    const players = await Player.findAll();
+    const players = await Player.findAll({
+        include: {
+          model: Team,
+          attributes: ['name']
+        }
+      });
     return players;
 }
 
 //SHOW PLAYERS BY ID
 async function getPlayerById(id){
-    const players = await Player.findByPk(id);
+    const players = await Player.findByPk(id, {
+        include: [
+            {
+                model: User,
+                attributes: ["password", "email"],
+            },
+            {
+                model: Team,
+                attributes: ["name"],
+            },
+        ],
+    });
     return players;
 }
 

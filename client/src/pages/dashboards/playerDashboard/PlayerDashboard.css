@@ -1,0 +1,23 @@
+/* Contenedor principal de la página */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el contenedor ocupe al menos el 100% de la altura de la pantalla */
+  }
+  
+  /* El contenido principal ocupará el espacio disponible */
+  .main-content {
+    display: flex;
+    flex-grow: 1; /* El contenido crece para llenar el espacio disponible */
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Estilo del footer */
+  footer {
+    margin-top: 50px; /* Espacio entre el contenido principal y el footer */
+    background-color: #003c71;
+    color: #fff;
+    padding: 30px 20px;
+    text-align: center;
+  }

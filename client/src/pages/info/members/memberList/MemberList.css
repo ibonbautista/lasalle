@@ -1,0 +1,182 @@
+/* Lista de Miembros */
+.member-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+/* Contenedor de la tabla con scroll horizontal */
+.table-container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 10px;
+  margin-top: 20px;
+  box-sizing: border-box;
+  display: block;
+}
+
+/* Tabla */
+.member-table {
+  width: 95%; /* Asegura que la tabla se ajuste a su contenido */
+  table-layout: auto; /* Fija la tabla para que las columnas no colapsen */
+  border-collapse: collapse;
+  background-color: #fff; /* Establecer un diseño fijo para evitar que la tabla se expanda más allá de su contenedor */
+}
+
+/* Estilos de celdas */
+th, td {
+  padding: 10px 12px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 0.9em;
+  color: #333;
+  border: 1px solid #ddd;
+  white-space: nowrap;
+}
+
+th {
+  background-color: #ddcc0b;
+  color: #040303;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+td {
+  background-color: #dcdbdb;
+  font-size: 0.9em; /* Reducir el tamaño de la fuente para que sea más pequeña */
+}
+
+/* Tamaños específicos para celdas */
+th.member_id, td.member_id { width: 3%; }
+th.user_id, td.user_id { width: 3%; }
+th.member-name, td.member-name { width: 10%; }
+th.member-surname, td.member-surname { width: 10%; }
+th.member-nif, td.member-nif { width: 10%; }
+th.member-phone, td.member-phone { width: 10%; }
+th.member-family, td.member-family { width: 5%; }
+th.member-edit, td.member-edit { width: 5%; }
+th.member-delete, td.member-delete { width: 5%; }
+
+/* Filas alternadas */
+tr:nth-child(even) td {
+  background-color: #8d8989;
+}
+
+/* Botones */
+button {
+  background-color: #0f28e7;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+button .delete{
+  background-color: #ff0000;
+}
+
+button:hover {
+  background-color: #040e6d;
+}
+
+/* Paginación */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination-button {
+  margin: 0 10px;
+  background-color: #056020;
+  color: white;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination-button:disabled {
+  background-color: #060505;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin: 0 15px;
+}
+
+/* Media Queries para pantallas pequeñas */
+
+/* Pantallas pequeñas (menos de 768px) */
+@media (max-width: 768px) {
+  .table-container {/* Ajustamos el contenedor de la tabla al 100% */
+    overflow-x: auto; /* Habilitamos el desplazamiento horizontal */
+  }
+
+  .member-table {
+    width: max-content; /* La tabla ocupará todo el ancho del contenedor */
+    min-width: 100%; /* Establecemos un mínimo ancho para la tabla */
+  }
+
+  th.member_id, td.member_id { width: 3%; }
+th.user_id, td.user_id { width: 3%; }
+th.member-name, td.member-name { width: 15%; }
+th.member-surname, td.member-surname { width: 15%; }
+th.member-nif, td.member-nif { width: 6%; }
+th.member-phone, td.member-phone { width: 100%; }
+th.member-family, td.member-family { width: 3%; }
+th.member-edit, td.member-edit { width: 3%; }
+th.member-delete, td.member-delete { width: 3%; }
+
+  .pagination {
+    flex-direction: column; /* La paginación será en columna en pantallas pequeñas */
+  }
+
+  .pagination-button {
+    margin: 5px 0; /* Reducimos el espacio entre los botones */
+    padding: 6px 10px; /* Reducimos el padding en los botones */
+  }
+}
+
+/* Pantallas muy pequeñas (menos de 480px) */
+@media (max-width: 480px) {
+  .member-list {
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .table-container {
+    width: 100%; /* La tabla sigue ocupando el 100% del ancho */
+    overflow-x: auto; /* Desplazamiento horizontal si la tabla es más ancha */
+  }
+
+  table {
+    width: 100%; /* La tabla ocupará el 100% del ancho */
+    min-width: 450px; /* Aseguramos que la tabla no sea demasiado pequeña */
+  }
+
+  th, td {
+    padding: 6px 8px; /* Reducimos aún más el padding */
+    font-size: 0.8em; /* Reducimos el tamaño de la fuente */
+  }
+
+  .pagination-button {
+    padding: 5px 8px; /* Reducimos el tamaño de los botones */
+  }
+
+  .pagination span {
+    font-size: 1em; /* Reducimos el tamaño de la fuente de la paginación */
+  }
+}

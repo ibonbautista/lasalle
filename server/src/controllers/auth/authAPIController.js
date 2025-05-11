@@ -11,7 +11,8 @@ async function login(req, res) {
             role: result.role
         };
         const token = createToken(data);
-        res.json({ token: token });
+        res.cookie("token", token, { httpOnly: true });
+        res.json({ token: token, user: data });
         
     } catch (error) {
         console.error(error);
@@ -37,8 +38,21 @@ async function register(req, res) {
     }
 }
 
+function logout(req, res) {
+    res.clearCookie("token");
+    res.json({ message: "Logout successful" });
+}
+
+async function getUserInfo (req,res){
+    const userId = req.user.user_id;
+    const result = await authController.getUserInfo(userId);
+    res.send({user:result});
+}
+
 
 export default {
     register,
-    login
+    login,
+    logout,
+    getUserInfo
 };

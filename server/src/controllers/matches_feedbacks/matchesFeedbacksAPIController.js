@@ -26,9 +26,9 @@ async function getFeedbacksByCoach(req,res){
 }
 
 //SHOW FEEDBACKS BY PLAYER
-async function getFeedbacksByPlayer(req,res){
+async function getFeedbacksByPlayerId(req,res){
     const { player } = req.params;
-    const feedbacks = await matchFeedbacksController.getFeedbackByMatch(player);
+    const feedbacks = await matchFeedbacksController.getFeedbackByPlayerId(player);
     res.json(feedbacks);
 }
 
@@ -38,5 +38,5 @@ export default{
     getAll,
     getFeedbacksByMatch,
     getFeedbacksByCoach,
-    getFeedbacksByPlayer
+    getFeedbacksByPlayerId
 };

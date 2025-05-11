@@ -1,0 +1,224 @@
+
+
+/* Lista de usuarios */
+.user-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  width: 100%;
+  height: auto;
+}
+
+/* Contenedor de la tabla con scroll horizontal */
+.table-container {
+  width: 100%;
+  overflow-x: auto; /* Habilita el desplazamiento horizontal */
+  padding: 0 10px; /* Añadimos un pequeño padding para evitar que se toque el borde */
+  margin-top: 20px;
+  box-sizing: border-box;
+}
+
+/* Tabla */
+.user-table {
+  width: 100%; /* La tabla ocupará el 100% del ancho del contenedor */
+  border-collapse: collapse;
+  margin-top: 20px;
+  text-align: center;
+  table-layout: auto; /* Establecer un diseño fijo para evitar que la tabla se expanda más allá de su contenedor */
+}
+
+/* Estilos de celdas */
+th, td {
+  padding: 10px 12px; /* Reducir el padding para hacerla más pequeña */;
+  vertical-align: middle;
+  font-size: 0.9em; /* Ajustar el tamaño de la fuente */
+  color: #010101;
+  border: 1px solid #ddd;
+}
+
+tr {
+  height: 50px; /* Cambia este valor a lo que necesites */
+  line-height: 50px; /* Asegura que el texto se alinee verticalmente */
+}
+th {
+  background-color: #ddcc0b;
+  color: #040303;
+  font-weight: bold;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+td {
+  background-color: #dcdbdb;
+  font-size: 0.9em; /* Reducir el tamaño de la fuente para que sea más pequeña */
+}
+
+/* Tamaños específicos para celdas */
+th.id, td.id { width: 3%; }
+th.user-email, td.user-email { width: 18%; }
+th.user-password, td.user-password { width: 35%; }
+th.user-role, td.user-role { width: 9%; }
+th.user-in-date, td.user-in-date { width: 7%; }
+th.user-update-date, td.user-update-date { width: 7%; }
+th.user-out-date, td.user-out-date { width: 7%; }
+th.user-edit, td.user-edit { width: 10%; }
+th.user-delete, td.user-delete { width: 10%; }
+
+td {
+  word-wrap: break-word;
+}
+
+/* Filas alternadas */
+tr:nth-child(even) td {
+  background-color: #373535;
+}
+
+/* Botones */
+button {
+  background-color: #0f28e7;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+button .delete{
+  background-color: #ff0000;
+}
+
+button:hover {
+  background-color: #040e6d;
+}
+
+/* Paginación */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination-button {
+  margin: 0 10px;
+  background-color: #056020;
+  color: white;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination-button:disabled {
+  background-color: #060505;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin: 0 15px;
+}
+
+/* Media Queries para pantallas pequeñas */
+
+/* Pantallas pequeñas (menos de 768px) */
+@media (max-width: 768px) {
+  .table-container {
+    overflow-x: auto; /* Habilitar desplazamiento horizontal */
+  }
+
+  .user-table {
+    width: max-content; /* Mantener el tamaño de la tabla al contenido */
+    min-width: 400%; /* Evitar que se deforme en pantallas pequeñas */
+  }
+  .user-list {
+    padding: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  th, td {
+    padding: 8px 10px; /* Reducimos el padding en pantallas más pequeñas */
+    font-size: 0.85em; /* Reducimos el tamaño de la fuente para que encaje mejor */
+  }
+
+  table {
+    width: 100%;
+    min-width: 600px; /* Establecemos un mínimo ancho para la tabla */
+  }
+
+  /* Ajustar el tamaño de las celdas en pantallas más pequeñas */
+  th.id, td.id { width: 4%; }
+th.user-email, td.user-email { width: 15%; }
+th.user-password, td.user-password { width: 35%; }
+th.user-role, td.user-role { width: 8%; }
+th.user-in-date, td.user-in-date { width: 7%; }
+th.user-update-date, td.user-update-date { width: 7%; }
+th.user-out-date, td.user-out-date { width: 7%; }
+th.user-edit, td.user-edit { width: 5%; }
+th.user-delete, td.user-delete { width: 5%; }
+
+  .table-container {
+    width: 100%; /* Ajustamos el contenedor de la tabla al 100% */
+    overflow-x: auto; /* Habilitamos el desplazamiento horizontal */
+  }
+
+  table {
+    width: 100%; /* La tabla ocupará todo el ancho del contenedor */
+    min-width: 600px; /* Establecemos un mínimo ancho para la tabla */
+  }
+
+  .pagination {
+    flex-direction: column; /* La paginación será en columna en pantallas pequeñas */
+  }
+
+  .pagination-button {
+    margin: 5px 0; /* Reducimos el espacio entre los botones */
+    padding: 6px 10px; /* Reducimos el padding en los botones */
+  }
+}
+
+/* Pantallas muy pequeñas (menos de 480px) */
+@media (max-width: 480px) {
+  .user-list {
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .table-container {
+    width: 100%; /* La tabla sigue ocupando el 100% del ancho */
+    overflow-x: auto; /* Desplazamiento horizontal si la tabla es más ancha */
+  }
+
+  table {
+    width: 100%; /* La tabla ocupará el 100% del ancho */
+    min-width: 450px; /* Aseguramos que la tabla no sea demasiado pequeña */
+  }
+
+   /* Reducir el tamaño de los botones */
+   button {
+    padding: 6px 10px; /* Reducimos el tamaño de los botones */
+    font-size: 0.8em; /* Reducimos aún más el tamaño de la fuente */
+  }
+
+  th, td {
+    padding: 6px 8px; /* Reducimos aún más el padding */
+    font-size: 0.8em; /* Reducimos el tamaño de la fuente */
+  }
+
+  .pagination-button {
+    padding: 5px 8px; /* Reducimos el tamaño de los botones */
+  }
+
+  .pagination span {
+    font-size: 1em; /* Reducimos el tamaño de la fuente de la paginación */
+  }
+}

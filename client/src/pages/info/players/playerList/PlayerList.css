@@ -1,0 +1,195 @@
+/* Lista de jugadores */
+.player-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+/* Contenedor de la tabla con scroll horizontal */
+.table-container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 10px;
+  margin-top: 20px;
+  box-sizing: border-box;
+  display: block; /* Aseguramos que el contenedor se comporte como un bloque */
+}
+
+/* Tabla */
+.player-table {
+  width: 95%; /* Asegura que la tabla se ajuste a su contenido */
+  table-layout: auto; /* Fija la tabla para que las columnas no colapsen */
+  border-collapse: collapse;
+  background-color: #fff;
+}
+
+/* Estilos de celdas */
+th, td {
+  padding: 10px 12px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 0.9em;
+  color: #333;
+  border: 1px solid #ddd;
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+}
+
+/* Encabezados */
+th {
+  background-color: #ddcc0b;
+  color: #040303;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Celdas */
+td {
+  background-color: #dcdbdb;
+}
+
+/* Ancho de cada columna (ajustable según tu preferencia) */
+th.player_id, td.player_id { width: 2%; }
+th.player-name, td.player-name { width: 8%; }
+th.player-surname1, td.player-surname1 { width: 8%; }
+th.player-surname2, td.player-surname2 { width: 8%; }
+th.player-nif, td.player-nif { width: 8%; }
+th.player-birthdate, td.player-birthdate { width: 8%; }
+th.player-phone, td.player-phone { width: 7%; }
+th.player-address, td.player-address { width: 15%; }
+th.player-gender, td.player-gender { width: 3%; }
+th.player-team, td.player-team { width: 15%; }
+th.player-position, td.player-position { width: 7%; }
+th.player-height, td.player-height { width: 5%; }
+th.player-hand, td.player-hand { width: 8%; }
+th.player-edit, td.player-edit { width: 5%; }
+th.player-delete, td.player-delete { width: 1%; }
+
+/* Filas alternadas */
+tr:nth-child(even) td {
+  background-color: #8d8989;
+}
+
+/* Botones */
+button {
+  background-color: #0f28e7;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  font-size: 0.85em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #040e6d;
+}
+
+button.delete {
+  background-color: #ff0000;
+}
+
+button.delete:hover {
+  background-color: #b20000;
+}
+
+/* Paginación */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination-button {
+  margin: 0 5px;
+  background-color: #056020;
+  color: #fff;
+  border-radius: 5px;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination-button:disabled {
+  background-color: #060505;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+  .table-container {
+    overflow-x: auto; /* Habilitar desplazamiento horizontal */
+  }
+
+  .player-table {
+    width: max-content; /* Mantener el tamaño de la tabla al contenido */
+    min-width: 600%; /* Evitar que se deforme en pantallas pequeñas */
+  }
+
+  th, td {
+    padding: 8px 10px;
+    font-size: 0.85em;
+  }
+
+  /* Ancho de cada columna (ajustable según tu preferencia) */
+  th.player_id, td.player_id { width: 2%; }
+  th.player-name, td.player-name { width: 6%; }
+  th.player-surname1, td.player-surname1 { width: 6%; }
+  th.player-surname2, td.player-surname2 { width: 6%; }
+  th.player-nif, td.player-nif { width: 6%; }
+  th.player-birthdate, td.player-birthdate { width: 6%; }
+  th.player-phone, td.player-phone { width: 6%; }
+  th.player-address, td.player-address { width: 12%; }
+  th.player-gender, td.player-gender { width: 4%; }
+  th.player-team, td.player-team { width: 10%; }
+  th.player-position, td.player-position { width: 6%; }
+  th.player-height, td.player-height { width: 4%; }
+  th.player-hand, td.player-hand { width: 5%; }
+  th.player-edit, td.player-edit { width: 2%; }
+  th.player-delete, td.player-delete { width: 3%; }
+
+  .pagination {
+    flex-direction: column;
+  }
+
+  .pagination-button {
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .table-container {
+    overflow-x: auto; /* Desplazamiento horizontal si la tabla es más ancha */
+  }
+
+  table {
+    width: max-content; /* Mantener el tamaño de la tabla al contenido */
+    min-width: 100%; /* Evitar que se deforme en pantallas pequeñas */
+  }
+
+  th, td {
+    padding: 6px 8px;
+    font-size: 0.8em;
+  }
+
+  .pagination {
+    flex-direction: column;
+  }
+
+  .pagination-button {
+    margin-bottom: 5px;
+  }
+}
